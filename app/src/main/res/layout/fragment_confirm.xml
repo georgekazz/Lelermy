@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    tools:context=".ConfirmFragment"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="309dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:text="Είστε σίγουροι για την επιλογή σας; "
+        />
+
+    <Button
+        android:id="@+id/yesBt"
+        android:layout_width="136dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="270dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="Ναι"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/noBt"
+        android:layout_width="128dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="237dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="273dp"
+        android:backgroundTint="@color/lightgreen"
+        android:text="Οχι"
+        android:textSize="20dp"
+         />
+</FrameLayout>

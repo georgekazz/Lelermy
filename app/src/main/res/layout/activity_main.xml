@@ -34,13 +34,13 @@
             android:clickable="false"
             android:gravity="center"
             android:shadowColor="#1D4E0F"
-            android:text="TextView"
+            android:text="Λελermy"
             android:textAlignment="center"
             android:textColor="@color/darkgreen"
             android:textIsSelectable="false"
             android:textSize="40sp"
             android:textStyle="bold|italic"
-            tools:text="Λελermy" />
+            />
 
         <ImageView
             android:id="@+id/imageView"

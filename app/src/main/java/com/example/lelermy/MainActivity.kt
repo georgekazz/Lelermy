@@ -13,8 +13,7 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById<Button>(R.id.startButton)
 
         startButton.setOnClickListener {
-            val intent = Intent(this, ChoiceActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@MainActivity, ChoiceActivity::class.java))
         }
 
     }
