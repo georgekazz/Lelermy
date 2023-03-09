@@ -12,6 +12,8 @@ class ChoiceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choice)
 
         val stratosksirasbt = findViewById<Button>(R.id.stratosKsirasBt)
+        val nautikoBt = findViewById<Button>(R.id.nautikoBt)
+        val aeroporiaBt = findViewById<Button>(R.id.aeroporiaBt)
 
         stratosksirasbt.setOnClickListener {
 
