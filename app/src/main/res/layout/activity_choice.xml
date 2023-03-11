@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".ChoiceActivity">
+    tools:context=".ChoiceActivity"
+    android:id="@+id/container">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -16,6 +17,7 @@
 
     <TextView
         android:id="@+id/textView4"
+        android:typeface="serif"
         android:layout_width="390dp"
         android:layout_height="80dp"
         android:layout_marginLeft="10dp"
@@ -28,6 +30,7 @@
 
     <TextView
         android:id="@+id/textView5"
+        android:typeface="sans"
         android:layout_width="390dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -64,6 +67,6 @@
             android:layout_height="140dp"
             android:scaleType="fitCenter"
             android:src="@drawable/hellenicairforce" />
-    </LinearLayout>
 
+    </LinearLayout>
 </RelativeLayout>

@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         startButton.setOnClickListener {
 
-            startActivity(Intent(this@MainActivity, ChoiceActivity::class.java))
+            startActivity(Intent(this, ChoiceActivity::class.java))
 
         }
     }
