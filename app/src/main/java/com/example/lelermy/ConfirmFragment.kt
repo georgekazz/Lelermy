@@ -5,23 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 
 class ConfirmFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
+//        val yesBt = view?.findViewById<Button>(R.id.yesBt)
+//        System.out.println(yesBt)
+//
+//        yesBt?.setOnClickListener {
+//            //requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
+//            System.out.println("rrrrrrr")
+//        }
+
         return inflater.inflate(R.layout.fragment_confirm, container, false)
     }
-
-
 }

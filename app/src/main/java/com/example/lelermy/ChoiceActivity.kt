@@ -20,9 +20,9 @@ class ChoiceActivity : AppCompatActivity() {
         val aeroporiaBt = findViewById<ImageButton>(R.id.aeroporiaBt)
 
         stratosKsirasBt.setOnClickListener {
+
             choiceCounter = 1
             setContentView(R.layout.fragment_confirm)
-
         }
     }
 }
