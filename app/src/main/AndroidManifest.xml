@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Lelermy"
         tools:targetApi="31">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".SecondCalendarActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,7 @@ package com.example.lelermy
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,6 +61,12 @@ class SetProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
         Log.i("Formating", formatter.format(timestamp).toString())
 
+        //Save Second Calendar value in secondCalendar
+        val sharedPref1 = getSharedPreferences("firstCalendar", Context.MODE_PRIVATE)
+        with (sharedPref1.edit()) {
+            putString("firstCalendar", formatter.format(timestamp))
+            apply()
+        }
     }
 }
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:background="@drawable/backgroundicon">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titletx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Συμπλήρωσε τα στοιχεία παρακάτω"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="75dp"
+            android:layout_marginTop="25dp"/>
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:layout_marginBottom="15dp"
+            android:inputType="textPersonName"
+            android:hint="Όνομα" />
+
+        <EditText
+            android:id="@+id/editTextLastname"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="15dp"
+            android:hint="Επίθετο" />
+
+        <EditText
+            android:id="@+id/editTextSeira"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="15dp"
+            android:hint="Σειρά" />
+
+        <EditText
+            android:id="@+id/editTextEsso"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="115dp"
+            android:hint="EΣΣΟ"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:backgroundTint="@color/darkgreen"
+            android:layout_marginLeft="110dp"
+            android:textSize="20dp"
+            android:text="Καλη Θητεια" />
+
+
+    </LinearLayout>
+</RelativeLayout>
