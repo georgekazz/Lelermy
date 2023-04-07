@@ -2,7 +2,7 @@ package com.example.lelermy
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,14 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.CalendarView
 import android.widget.DatePicker
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import org.w3c.dom.Text
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,7 +45,8 @@ class SetProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
         //invisible next button
         nextbt.setOnClickListener {
-
+            val intent = Intent(this, SecondCalendarActivity::class.java)
+            startActivity(intent)
         }
     }
 

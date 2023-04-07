@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondCalendarActivity"
+    android:background="@color/lightgreen">
+
+
+    <TextView
+        android:id="@+id/titleTx"
+        android:layout_width="352dp"
+        android:layout_height="162dp"
+        android:layout_marginLeft="30dp"
+        android:text="Καταχώρησε την ημερομηνία απολύσεως"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/show_calendar_termination_bt"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="300dp"
+        android:backgroundTint="@color/ligreen"
+        android:text="Εισαγωγη"
+        android:textColor="@color/darkgreen"
+        android:textSize="24dp"
+        app:icon="@android:drawable/ic_menu_agenda" />
+
+    <Button
+        android:id="@+id/finishBt"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="650dp"
+        android:backgroundTint="@color/darkgreen"
+        android:clickable="false"
+        android:text="Ολοκλήρωση"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>
