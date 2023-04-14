@@ -2,6 +2,7 @@ package com.example.lelermy
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -28,46 +29,44 @@ class SignUpActivity : AppCompatActivity() {
 
 
         // We make button non clickable until all texts are not empty
-        completeRegisterBt.isClickable = false
-
-        //an den einai keno
-        if(isEditTextEmpty(editTextName)) run {
-
-            errortx.text = "Πρέπει να συμπληρώσεις το όνομα σου"
-
-        } else if (isEditTextEmpty(editTextLastname)) {
-
-            errortx.text = "Πρέπει να συμπληρώσεις το επίθετο σου"
-
-        } else if (isEditTextEmpty(edittextSeira)) {
-
-            errortx.text = "Πρέπει να συμπληρώσεις την σειρά σου"
-
-        } else if (isEditTextEmpty(editTextEsso)) {
-
-            errortx.text = "Πρέπει να συμπληρώσεις την ΕΣΣΟ σου"
-
-        } else  {
-
-            editor.putString("username", editTextName.text.toString())
-            editor.apply()
-            editor.putString("lastname", editTextLastname.text.toString())
-            editor.apply()
-            editor.putString("seira", edittextSeira.text.toString())
-            editor.apply()
-            editor.putString("esso", editTextEsso.text.toString())
-            editor.apply()
-
-            completeRegisterBt.isClickable = true
-        }
+        completeRegisterBt?.isClickable
 
         //when button pressed we transfer the use to main
         completeRegisterBt.setOnClickListener {
 
+            //an einai keno
+            if(isEditTextEmpty(editTextName)) run {
 
+                errortx.text = "Πρέπει να συμπληρώσεις το όνομα σου"
+
+            } else if (isEditTextEmpty(editTextLastname)) {
+
+                errortx.text = "Πρέπει να συμπληρώσεις το επίθετο σου"
+
+            } else if (isEditTextEmpty(edittextSeira)) {
+
+                errortx.text = "Πρέπει να συμπληρώσεις την σειρά σου"
+
+            } else if (isEditTextEmpty(editTextEsso)) {
+
+                errortx.text = "Πρέπει να συμπληρώσεις την ΕΣΣΟ σου"
+
+            } else  {
+
+                editor.putString("username", editTextName.text.toString())
+                editor.apply()
+                editor.putString("lastname", editTextLastname.text.toString())
+                editor.apply()
+                editor.putString("seira", edittextSeira.text.toString())
+                editor.apply()
+                editor.putString("esso", editTextEsso.text.toString())
+                editor.apply()
+
+                completeRegisterBt.isClickable = true
+                val intent = Intent(this, MainNaviActivity::class.java)
+                startActivity(intent)
+            }
         }
-
-
     }
     fun isEditTextEmpty(editText: EditText): Boolean {
         val text = editText.text.toString().trim()

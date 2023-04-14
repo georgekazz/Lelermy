@@ -19,7 +19,7 @@ import java.util.*
 class SetProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private val calendar = Calendar.getInstance()
-    private val formatter = SimpleDateFormat ("MMM. dd, yyyy", Locale.US)
+    private val formatter = SimpleDateFormat ("yyyy-MM-dd", Locale.getDefault())
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {

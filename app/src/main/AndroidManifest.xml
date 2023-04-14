@@ -12,6 +12,11 @@
         android:theme="@style/Theme.Lelermy"
         tools:targetApi="31">
         <activity
+            android:name=".MainNaviActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main_navi"
+            android:theme="@style/Theme.Lelermy.NoActionBar" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
