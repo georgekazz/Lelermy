@@ -26,10 +26,8 @@ class MainNaviActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainNaviBinding
-    val daysLeftTx = findViewById<TextView>(R.id.daysLeftTx)
-    val ipiretisimesTx = findViewById<TextView>(R.id.ipiretisimesTx)
-    val daysSpendInArmy = 0
-    val tipsTx = findViewById<TextView>(R.id.tipsTx)
+
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +36,17 @@ class MainNaviActivity : AppCompatActivity() {
         binding = ActivityMainNaviBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMainNavi.toolbar)
+
+        val daysLeftTx = findViewById<TextView>(R.id.daysLeftTx)
+        val ipiretisimesTx = findViewById<TextView>(R.id.ipiretisimesTx)
+        val daysSpendInArmy = 0
+        val tipsTx = findViewById<TextView>(R.id.tipsTx)
+
+        //ksira-peziko-nautiko
+        val levelTx = findViewById<TextView>(R.id.levelText)
+
+        //tethorakismena-peziko-puroboliko-mixaniko-diabibasis-aeroporia-efodiasmou-elegktikou-ereunas pliroforikis-
+        val leveltwoTx = findViewById<TextView>(R.id.levelTwoText)
 
         //get calendar values
         val sharedPref = getSharedPreferences("secondCalendar", Context.MODE_PRIVATE)
@@ -93,6 +102,7 @@ class MainNaviActivity : AppCompatActivity() {
     }
 
     fun isZero(long: Long) {
+        val daysLeftTx = findViewById<TextView>(R.id.daysLeftTx)
         if (long <= 0) {
             daysLeftTx.text = "0"
         }
