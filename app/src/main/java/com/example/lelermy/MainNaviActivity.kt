@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -25,11 +26,14 @@ class MainNaviActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainNaviBinding
+    val daysLeftTx = findViewById<TextView>(R.id.daysLeftTx)
+    val ipiretisimesTx = findViewById<TextView>(R.id.ipiretisimesTx)
+    val daysSpendInArmy = 0
+    val tipsTx = findViewById<TextView>(R.id.tipsTx)
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = ActivityMainNaviBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,17 +50,27 @@ class MainNaviActivity : AppCompatActivity() {
 
         val startDate = LocalDate.parse(firstCalendar)
         val endDate = LocalDate.parse(secondCalendar)
-
         val duration = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay())
         val days = duration.toDays()
 
-        val daysLeftTx = findViewById<TextView>(R.id.daysLeftTx)
-        daysLeftTx.text = days.toString()
 
+        daysLeftTx.text = days.toString()
         System.out.println("To ypoloipo einai: $days")
 
+        ipiretisimesTx.text = "$daysSpendInArmy"
+
+        val datePicker = findViewById<DatePicker>(R.id.datePicker)
+        datePicker.setOnDateChangedListener { view, year, monthOfYear, dayOfMonth ->
+            days  - 1
+            daysLeftTx.text = days.toString()
+            isZero(days)
+
+            daysSpendInArmy + 1
+            checkServiceTime(days)
+        }
+
         binding.appBarMainNavi.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Η προσθήκη ολοκληρώθηκε με επιτυχία", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
@@ -76,5 +90,19 @@ class MainNaviActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main_navi)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun isZero(long: Long) {
+        if (long <= 0) {
+            daysLeftTx.text = "0"
+        }
+    }
+
+    fun checkServiceTime(long: Long) {
+        if (long >= 260) {
+            //image fish
+        } else if (long >= 240) {
+            //img
+        }
     }
 }
