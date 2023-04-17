@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val isRegistered = true
+        val isRegistered = false
         val startButton = findViewById<Button>(R.id.startButton)
         val videoView = findViewById<VideoView>(R.id.videoView)
         val videoPath = "android.resource://" + packageName + "/" + R.raw.appgif

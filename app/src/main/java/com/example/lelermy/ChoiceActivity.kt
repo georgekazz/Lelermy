@@ -2,10 +2,14 @@ package com.example.lelermy
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.lelermy.ui.home.HomeFragment
+import com.example.lelermy.ui.home.HomeViewModel
 
 class ChoiceActivity : AppCompatActivity() {
     @SuppressLint("WrongViewCast", "MissingInflatedId")
@@ -27,7 +31,13 @@ class ChoiceActivity : AppCompatActivity() {
 
         builder.setPositiveButton("Ναι") { dialog, which ->
             val intent = Intent(this,SetProfileActivity::class.java)
-            intent.putExtra("choiceCounter", choiceCounter)
+            val sharedPref = getSharedPreferences("choiceCounter", Context.MODE_PRIVATE)
+
+            with (sharedPref.edit()) {
+                putInt("choiceCounter", choiceCounter)
+                apply()
+            }
+            //intent.putExtra("choiceCounter", choiceCounter)
             startActivity(intent)
         }
 

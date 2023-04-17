@@ -109,11 +109,12 @@ class HomeFragment : Fragment() {
 
         //ksira-peziko-nautiko
         val levelimg = view?.findViewById<ImageView>(R.id.levelimg)
-        val choiceCounter = requireActivity().intent.getIntExtra("choiceCounter", 0)
+        val sharedPref3 = requireContext().getSharedPreferences("choiceCounter", Context.MODE_PRIVATE)
+        val choiceCounter = sharedPref3.getInt("choiceCounter", 0)
 
         if (choiceCounter == 1) {  levelimg?.setImageResource(R.drawable.ksirastratosimg)
         } else if (choiceCounter == 2) { levelimg?.setImageResource(R.drawable.hellenicnavyseal)
-        } else { levelimg?.setImageResource(R.drawable.hellenicairforce) }
+        } else if (choiceCounter == 3){ levelimg?.setImageResource(R.drawable.hellenicairforce) }
     }
 
     fun showMedal(string: String) {
