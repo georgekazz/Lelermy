@@ -7,9 +7,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.example.lelermy.ui.home.HomeFragment
-import com.example.lelermy.ui.home.HomeViewModel
 
 class ChoiceActivity : AppCompatActivity() {
     @SuppressLint("WrongViewCast", "MissingInflatedId")
@@ -29,7 +26,7 @@ class ChoiceActivity : AppCompatActivity() {
         builder.setTitle("ΠΡΟΣΟΧΗ!!")
         builder.setMessage("Είστε σίγουρος για την επιλογή σας;")
 
-        builder.setPositiveButton("Ναι") { dialog, which ->
+        builder.setPositiveButton("Ναι") { _, _ ->
             val intent = Intent(this,SetProfileActivity::class.java)
             val sharedPref = getSharedPreferences("choiceCounter", Context.MODE_PRIVATE)
 
@@ -41,7 +38,7 @@ class ChoiceActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        builder.setNegativeButton("Οχι") { dialog, which ->
+        builder.setNegativeButton("Οχι") { dialog, _ ->
             dialog.dismiss()
         }
 
