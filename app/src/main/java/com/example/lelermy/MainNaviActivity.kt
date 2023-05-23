@@ -25,7 +25,7 @@ class MainNaviActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMainNavi.toolbar)
 
-        val tipsTx = findViewById<TextView>(R.id.tipsTx)
+       // val tipsTx = findViewById<TextView>(R.id.tipsTx)
 
         //tethorakismena-peziko-puroboliko-mixaniko-diabibasis-aeroporia-efodiasmou-elegktikou-ereunas pliroforikis-
         //  val leveltwoTx = findViewById<TextView>(R.id.levelTwoText)

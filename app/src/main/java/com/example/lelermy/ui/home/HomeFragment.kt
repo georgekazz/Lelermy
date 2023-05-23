@@ -11,29 +11,26 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.lelermy.R
 import com.example.lelermy.databinding.FragmentHomeBinding
 import java.time.Duration
 import java.time.LocalDate
+import java.util.Calendar
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val millisInDay = 86400000L
-    val daysSpendInArmy = 0
-
-    private val levelsKsira = arrayListOf("Ψάρι","Στρατιώτης","Υποδεκανέας","Δεκανέας", "Λοχίας","Επιλοχίας","Αρχιλοχίας",
-        "Ανθυπασπιστής","Δόκιμος","Ανθυπολοχαγός","Υπολοχαγός","Λοχαγός","Ταγματάρχης","Αντισυνταγματάρχης","Συνταγματάρχης",
-        "Ταξίαρχος","Υποστράτηγος","Αντιστράτηγος","Στρατηγός","European citizens")
+    var previousDay: Int = -1
+    private val daysSpendInArmy =+ 1
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -44,7 +41,6 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onResume() {
         super.onResume()
-        val choiceCounter = requireActivity().intent.getIntExtra("choiceCounter", 0)
 
         val sharedPref = requireContext().getSharedPreferences("secondCalendar", Context.MODE_PRIVATE)
         val sharedPref1 = requireContext().getSharedPreferences("firstCalendar", Context.MODE_PRIVATE)
@@ -59,54 +55,37 @@ class HomeFragment : Fragment() {
         val duration = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay())
         var days = duration.toDays()
 
-        showLevel(choiceCounter)
-
+        showLevel()
         showMedal()
-        startCountdown()
         checkServiceTime(days)
-    }
 
-    private fun startCountdown() {
-        object : CountDownTimer(millisInDay, 1000) {
-            @RequiresApi(Build.VERSION_CODES.O)
-            override fun onTick(millisUntilFinished: Long) {
-
-                val sharedPref = requireContext().getSharedPreferences("secondCalendar", Context.MODE_PRIVATE)
-                val sharedPref1 = requireContext().getSharedPreferences("firstCalendar", Context.MODE_PRIVATE)
-                val firstCalendar = sharedPref1.getString("firstCalendar", null)
-                val secondCalendar = sharedPref.getString("secondCalendar", null)
-
-                System.out.println("Take the first day:$firstCalendar")
-                System.out.println("Take the second day:$secondCalendar")
-
-                val startDate = LocalDate.parse(firstCalendar)
-                val endDate = LocalDate.parse(secondCalendar)
-                val duration = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay())
-                var days = duration.toDays()
-                val ipiretisimesTx = view?.findViewById<TextView>(R.id.ipiretisimesTx)
-
-                // Μείωση των ημερών και ενημέρωση του UI
-                days--
-                showMedal()
-                daysSpendInArmy + 1
-
-                updateDaysLeftTextView(days)
-                ipiretisimesTx?.text = "$daysSpendInArmy"
-            }
-
-            override fun onFinish() {
-                val daysLeftTx = view?.findViewById<TextView>(R.id.daysLeftTx)
-                daysLeftTx?.text = "European citizens"
-
-            }
-        }.start()
-    }
-
-    fun updateDaysLeftTextView(days: Long) {
+        val ipiretisimesTx = view?.findViewById<TextView>(R.id.ipiretisimesTx)
         val daysLeftTx = view?.findViewById<TextView>(R.id.daysLeftTx)
 
         daysLeftTx?.text = days.toString()
-        System.out.println("To ypoloipo twn imeron sto strato einai: $days")
+
+        val calendar = Calendar.getInstance()
+        val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
+
+        if (currentDay != previousDay && days >=0) {
+
+            // Έχει αλλάξει η ημέρα
+            previousDay = currentDay
+            days -= 1
+            daysSpendInArmy + 1
+
+            daysLeftTx?.text = days.toString()
+            ipiretisimesTx?.text = "$daysSpendInArmy"
+
+        } else {
+
+//            val daysLeftTx = view?.findViewById<TextView>(R.id.daysLeftTx)
+//            daysLeftTx?.text = "European citizens"
+        }
+
+
+        ipiretisimesTx?.text = "$daysSpendInArmy"
+
     }
 
     override fun onDestroyView() {
@@ -163,7 +142,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showLevel(int: Int) {
+    private fun showLevel() {
 
         //ksira-peziko-nautiko
         val levelimg = view?.findViewById<ImageView>(R.id.levelimg)
